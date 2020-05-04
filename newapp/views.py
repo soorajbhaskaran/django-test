@@ -53,7 +53,7 @@ def special_page(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('base'))
 
 
 def user_login(request):
@@ -66,7 +66,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('base'))
             else:
                 print("Account not active")
         else:
